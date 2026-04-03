@@ -221,3 +221,13 @@ body {
     background: #44637d;
     color: white;
 }
+.shaman-bg {
+    width: 180px;
+    opacity: 0.12;
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: blur(2px);
+    pointer-events: none;
+}
