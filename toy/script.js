@@ -399,4 +399,4 @@ function cevapAl() {
     }, 400);
 }
 
-sayfaGoster("ana");
+sayfaGoster("ana");    
