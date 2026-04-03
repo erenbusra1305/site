@@ -1,40 +1,218 @@
-function aktifButon(sayfa) {
-    let butonlar = document.querySelectorAll(".menu button");
-
-    butonlar.forEach(btn => btn.classList.remove("active"));
-
-    if (sayfa === "ana") butonlar[0].classList.add("active");
-    if (sayfa === "dusunceler") butonlar[1].classList.add("active");
-    if (sayfa === "kitaplar") butonlar[2].classList.add("active");
-    if (sayfa === "katki") butonlar[3].classList.add("active");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-function sayfaGoster(sayfa) {
-    aktifButon(sayfa);
+body {
+    font-family: Arial, sans-serif;
+    background: #0b1a2f;
+    color: #ffffff;
+}
 
-    let icerik = document.getElementById("icerik");
+.app {
+    max-width: 500px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 90px;
+}
 
-    if (sayfa === "ana") {
-        icerik.innerHTML = `
-            <section class="hero">
-                <h2>Hoş geldin</h2>
-                <p>
-                    Toy, düşünce, fikir ve kitap etrafında şekillenen sade bir alan.
-                    Gürültü değil, anlam arayanlar için.
-                </p>
-            </section>
+.header {
+    text-align: center;
+    padding: 30px 20px 20px;
+    border-bottom: 1px solid #122844;
+}
 
-            <section class="cards">
-                <div class="card">
-                    <h3>Fikirler ve Düşünceler</h3>
-                    <p>Toplum, insan, anlam ve düzen üzerine yazılar.</p>
-                </div>
+.logo {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #00c2ff, #005b8a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+}
 
-                <div class="card">
-                    <h3>Kitaplar</h3>
-                    <p>Okunması gereken eserler ve kısa değerlendirmeler.</p>
-                </div>
+.header h1 {
+    font-size: 36px;
+    letter-spacing: 3px;
+}
 
+.header p {
+    color: #7ddfff;
+}
+
+.content {
+    padding: 20px;
+    flex: 1;
+}
+
+.hero {
+    background: #10223a;
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #163455;
+}
+
+.hero h2 {
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #cfefff;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card, .liste-kart {
+    background: #10223a;
+    border-radius: 16px;
+    padding: 18px;
+    border: 1px solid #163455;
+    margin-bottom: 12px;
+}
+
+.card h3, .liste-kart h3 {
+    color: #00c2ff;
+}
+
+.card p {
+    color: #bfe9ff;
+}
+
+.menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 500px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    padding: 12px;
+    background: #081422;
+    border-top: 1px solid #122844;
+}
+
+.menu button {
+    padding: 10px 6px;
+    border: none;
+    border-radius: 12px;
+    background: #122844;
+    color: #7ddfff;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.menu button.active {
+    background: #00c2ff;
+    color: #001421;
+}
+
+.geri-btn {
+    margin-bottom: 16px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 10px;
+    background: #00c2ff;
+    color: #001421;
+    font-weight: bold;
+}
+
+.chat-alani {
+    background: #10223a;
+    border: 1px solid #163455;
+    padding: 10px;
+    border-radius: 12px;
+    height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.mesaj {
+    padding: 10px 12px;
+    margin: 6px 0;
+    border-radius: 12px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.ai {
+    background: #1b314d;
+    color: #eaf8ff;
+}
+
+.kullanici {
+    background: #00c2ff;
+    color: #001421;
+    margin-left: auto;
+}
+
+.alt-bar {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.alt-bar input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #163455;
+    font-size: 16px;
+    background: #10223a;
+    color: #ffffff;
+}
+
+.alt-bar input::placeholder {
+    color: #7aa9c7;
+}
+
+.alt-bar button {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 10px;
+    background: #00c2ff;
+    color: #001421;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.katki-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.katki-form input,
+.katki-form textarea {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #163455;
+    background: #10223a;
+    color: white;
+}
+
+.katki-form button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #44637d;
+    color: white;
+}
                 <div class="card">
                     <h3>Katkı Ekle</h3>
                     <p>Yakında sen de kendi fikrini paylaşabileceksin.</p>
