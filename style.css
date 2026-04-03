@@ -6,8 +6,16 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #0b1a2f;
     color: #ffffff;
+
+    background:
+        linear-gradient(rgba(11,26,47,0.88), rgba(11,26,47,0.94)),
+        url("wolf.png");
+
+    background-size: 320px;
+    background-repeat: no-repeat;
+    background-position: center 18%;
+    background-color: #0b1a2f;
 }
 
 .app {
