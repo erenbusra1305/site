@@ -222,13 +222,13 @@ body {
     color: white;
 }
 .shaman-bg {
-    width: 220px;
-    opacity: 0.08;
+    width: 260px;        /* biraz büyüttük */
+    opacity: 0.18;       /* daha belirgin */
     position: absolute;
-    top: 160px;
+    top: 140px;          /* biraz yukarı aldık */
     left: 50%;
     transform: translateX(-50%);
-    filter: blur(3px);
+    filter: blur(2px);   /* çok blur değil, hafif */
     pointer-events: none;
     z-index: 0;
 }
