@@ -222,12 +222,17 @@ body {
     color: white;
 }
 .shaman-bg {
-    width: 180px;
-    opacity: 0.12;
+    width: 220px;
+    opacity: 0.08;
     position: absolute;
-    top: 120px;
+    top: 160px;
     left: 50%;
     transform: translateX(-50%);
-    filter: blur(2px);
+    filter: blur(3px);
     pointer-events: none;
+    z-index: 0;
+}
+.chat-alani {
+    position: relative;
+    z-index: 2;
 }
