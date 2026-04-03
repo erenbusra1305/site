@@ -231,6 +231,8 @@ body {
     filter: blur(2px);   /* çok blur değil, hafif */
     pointer-events: none;
     z-index: 0;
+    box-shadow: 0 0 80px rgba(0, 200, 255, 0.15);
+
 }
 .chat-alani {
     position: relative;
